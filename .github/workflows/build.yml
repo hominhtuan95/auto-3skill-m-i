@@ -33,7 +33,7 @@ jobs:
         run: |
           $files = @(Get-ChildItem source -Recurse -Filter "*.py" -File)
           if ($files.Count -eq 0) { throw "Khong tim thay ma nguon Python" }
-          $main = $files | Where-Object { $_.Name -in @("main.py", "auto_skill.py", "autoskill.py") } | Select-Object -First 1
+          $main = $files | Where-Object { $_.Name -eq "AutoSkill_3Skill_Aegis_V25.py" } | Select-Object -First 1
           if (-not $main) { throw "Can xac dinh file Python chinh de build" }
           python -m PyInstaller --onefile --windowed --name AutoSkill_3Skill_Aegis_V25 "$($main.FullName)"
 
